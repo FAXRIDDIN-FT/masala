@@ -14,7 +14,6 @@ export class ShopProduct {
 }
 
 // masala 02
-
 export class Timer {
   constructor(seconds) {
     this.seconds = seconds;
@@ -55,13 +54,35 @@ export class Timer {
       }
       
     
+
+ // masala 05
+  export class Product {
+        constructor(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+      }
+      
+      export class Cart extends Product {
+        constructor() {
+          super(); 
+          this.products = [];
+        }
+      
+        addProduct(product) {
+          this.products.push(product);
+        }
+      
+        getTotal() {
+          return this.products.reduce((sum, p) => sum + p.price, 0);
+        }
+      }
+      
+ 
       
 
-
-  
-
  // masala 06
- export class Post {
+  export  class Post {
         constructor(title, content) {
           this.title = title;
           this.content = content;
@@ -72,10 +93,28 @@ export class Timer {
           this.likes += 1;
         }
       }
-      
-      
+    
 
-
+ // masala 07
+ export class BankCard {
+        constructor(owner, balance, limit) {
+          this.owner = owner;
+          this.balance = balance;
+          this.limit = limit;
+        }
+      
+        withdraw(amount) {
+          if (amount > this.limit || amount > this.balance) {
+            console.log("Rad etildi: Limit yoki balans yetarli emas");
+            return;
+          }
+          this.balance -= amount;
+          console.log(`Yangi balans: ${this.balance}`);
+        }
+      }
+      
+    
+      
 
  // masala 08
  export class Grade {
@@ -94,5 +133,4 @@ export class Timer {
         }
       }
       
-         
-      
+     
